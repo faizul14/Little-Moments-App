@@ -3,7 +3,7 @@ package com.example.limoapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.limoapp.ui.AddMomentActivity
+import com.example.limoapp.ui.addmoment.AddMomentActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,19 +7,19 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.limoapp.data.local.entity.Moment
+import com.example.limoapp.data.local.entity.MomentEntity
 
 @Dao
 interface MomentDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(moment: Moment)
+    fun insert(moment: MomentEntity)
 
     @Update
-    fun update(moment: Moment)
+    fun update(moment: MomentEntity)
 
     @Delete
-    fun Delete(moment: Moment)
+    fun Delete(moment: MomentEntity)
 
-    @Query("SELECT * from moment ORDER BY id ASC")
-    fun getAllMoment(): LiveData<List<Moment>>
+    @Query("SELECT * from momententity ORDER BY id ASC")
+    fun getAllMoment(): LiveData<List<MomentEntity>>
 }
