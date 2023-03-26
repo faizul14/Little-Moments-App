@@ -20,6 +20,6 @@ interface MomentDao {
     @Delete
     fun Delete(moment: MomentEntity)
 
-    @Query("SELECT * from momententity ORDER BY id ASC")
+    @Query("SELECT * from momententity ORDER BY id DESC")
     fun getAllMoment(): LiveData<List<MomentEntity>>
 }

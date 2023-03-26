@@ -34,7 +34,7 @@
                     android:id="@+id/img_emoji"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_margin="4dp"
                     android:src="@drawable/emoji_sample"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
