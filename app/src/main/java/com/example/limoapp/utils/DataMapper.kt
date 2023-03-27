@@ -12,14 +12,9 @@ object DataMapper {
         emoji = input.emoji
     )
 
-    fun mapEntitiesToDomain(input: List<MomentEntity>): List<DataModel> =
-        input.map {
-            DataModel(
-                id = it.id,
-                comment = it.comment,
-                path = it.path,
-                time = it.time,
-                emoji = it.emoji
-            )
-        }
+    fun mapEntitiesToDomain(input: List<MomentEntity>): List<DataModel> = input.map {
+        DataModel(
+            id = it.id, comment = it.comment, path = it.path, time = it.time, emoji = it.emoji
+        )
+    }
 }

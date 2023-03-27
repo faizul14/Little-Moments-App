@@ -1,14 +1,13 @@
 package com.example.limoapp.ui.camerax
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import com.example.limoapp.R
 import com.example.limoapp.databinding.ActivityCameraXactivityBinding
 
 class CameraXActivity : AppCompatActivity() {
@@ -29,9 +28,7 @@ class CameraXActivity : AppCompatActivity() {
 
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-            val preview = Preview.Builder()
-                .build()
-                .also {
+            val preview = Preview.Builder().build().also {
                     it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
                 }
 
@@ -40,16 +37,11 @@ class CameraXActivity : AppCompatActivity() {
             try {
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(
-                    this,
-                    cameraSelector,
-                    preview,
-                    imageCapture
+                    this, cameraSelector, preview, imageCapture
                 )
             } catch (exc: Exception) {
                 Toast.makeText(
-                    this,
-                    "Gagal memunculkan kamera.",
-                    Toast.LENGTH_SHORT
+                    this, "Gagal memunculkan kamera.", Toast.LENGTH_SHORT
                 ).show()
             }
         }, ContextCompat.getMainExecutor(this))

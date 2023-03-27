@@ -8,7 +8,8 @@ import com.example.limoapp.di.Injection
 import com.example.limoapp.domain.usecase.UseCase
 import com.example.limoapp.ui.addmoment.AddMomentViewModel
 
-class ViewModelFactory private constructor(private val useCase: UseCase): ViewModelProvider.NewInstanceFactory(){
+class ViewModelFactory private constructor(private val useCase: UseCase) :
+    ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -22,14 +23,13 @@ class ViewModelFactory private constructor(private val useCase: UseCase): ViewMo
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: ViewModelFactory? = null
 
-        fun getInstance(context: Context): ViewModelFactory =
-            INSTANCE ?: synchronized(this){
-                INSTANCE ?: ViewModelFactory(Injection.provideUseCase(context))
-            }
+        fun getInstance(context: Context): ViewModelFactory = INSTANCE ?: synchronized(this) {
+            INSTANCE ?: ViewModelFactory(Injection.provideUseCase(context))
+        }
     }
 
 }

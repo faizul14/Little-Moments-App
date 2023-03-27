@@ -27,17 +27,13 @@ class AddMomentActivity : AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
+        requestCode: Int, permissions: Array<String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (!allPermissionsGranted()) {
                 Toast.makeText(
-                    this,
-                    "Tidak mendapatkan permission.",
-                    Toast.LENGTH_SHORT
+                    this, "Tidak mendapatkan permission.", Toast.LENGTH_SHORT
                 ).show()
                 finish()
             }
@@ -56,9 +52,7 @@ class AddMomentActivity : AppCompatActivity() {
         //PERMISION CAMERA
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
-                this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
+                this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
             )
         }
         //VIEWMODEL

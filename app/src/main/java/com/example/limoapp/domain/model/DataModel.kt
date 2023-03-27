@@ -1,7 +1,5 @@
 package com.example.limoapp.domain.model
 
-import androidx.room.ColumnInfo
-
 data class DataModel(
     val id: Int = 0,
     val comment: String? = null,

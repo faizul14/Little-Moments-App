@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun firstSet(){
+    private fun firstSet() {
         // VIEWMODEL
         val factory = ViewModelFactory.getInstance(this.applicationContext)
         viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
