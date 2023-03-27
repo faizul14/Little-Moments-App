@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limoapp.databinding.ItemViewBinding
 import com.example.limoapp.domain.model.DataModel
+import com.example.limoapp.utils.rotateBitmap
 import java.io.File
 
 class ListMomentAdapter : RecyclerView.Adapter<ListMomentAdapter.ViewHolder>() {
@@ -22,11 +23,12 @@ class ListMomentAdapter : RecyclerView.Adapter<ListMomentAdapter.ViewHolder>() {
     class ViewHolder(val binding: ItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: DataModel) {
             //PATH
-            val imagePath =
-                "/sdcard/DCIM/Camera/IMG_20230326_212949.jpg" // Ubah sesuai dengan path atau alamat file gambar di perangkat Anda
+            val imagePath = data.path // Ubah sesuai dengan path atau alamat file gambar di perangkat Anda
             val file = File(imagePath)
             if (file.exists()) {
-                val bitmap = BitmapFactory.decodeFile(file.absolutePath)
+                val bitmap = rotateBitmap(
+                    BitmapFactory.decodeFile(file.absolutePath), true
+                )
                 binding.imgActivity.setImageBitmap(bitmap)
             } else {
                 Toast.makeText(itemView.context, "File tidak di temukan", Toast.LENGTH_SHORT).show()

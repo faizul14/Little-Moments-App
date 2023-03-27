@@ -75,7 +75,11 @@
             android:id="@+id/txt_comment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@null" />
+            android:background="@null"
+            android:gravity="top|start"
+            android:maxEms="100"
+            android:fontFamily="@font/font_forcomment"
+            android:textCursorDrawable="@drawable/dr_cursor"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +116,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:background="@color/color_two"
+                    android:background="@color/color_trsndpsrent"
                     android:src="@drawable/ic_camera"
                     android:visibility="visible" />
 
@@ -121,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
                     android:layout_margin="16dp"
-                    android:background="@color/color_two"
+                    android:background="@color/color_trsndpsrent"
                     android:src="@drawable/ic_image" />
             </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
