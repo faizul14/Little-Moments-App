@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LiMo App</string>
+    <string name="sample_text_comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi assumenda at consequuntur cum dignissimos earum eligendi facilis harum hic ipsum labore libero maxime, molestiae nam nemo nulla officiis perferendis praesentium quas quisquam rem repellendus, sit tempore, totam ut velit.</string>
+    <string name="txt_btnsave">SAVE</string>
 </resources>
