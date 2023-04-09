@@ -7,22 +7,25 @@ import com.example.limoapp.domain.model.DataModel
 import com.example.limoapp.domain.repository.Repository
 import com.example.limoapp.utils.AppExecutors
 import com.example.limoapp.utils.DataMapper
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class ImplRepository private constructor(
+@Singleton
+class ImplRepository @Inject constructor(
     private val appExecutors: AppExecutors,
     private val momentDao: MomentDao
 ) : Repository {
-    companion object {
-        @Volatile
-        private var INSTANCE: ImplRepository? = null
-
-        fun getInstance(
-            appExecutors: AppExecutors,
-            momentDao: MomentDao
-        ): ImplRepository = INSTANCE ?: synchronized(this) {
-            INSTANCE ?: ImplRepository(appExecutors, momentDao)
-        }.also { INSTANCE = it }
-    }
+//    companion object {
+//        @Volatile
+//        private var INSTANCE: ImplRepository? = null
+//
+//        fun getInstance(
+//            appExecutors: AppExecutors,
+//            momentDao: MomentDao
+//        ): ImplRepository = INSTANCE ?: synchronized(this) {
+//            INSTANCE ?: ImplRepository(appExecutors, momentDao)
+//        }.also { INSTANCE = it }
+//    }
 
     override fun getAllMoment(): LiveData<List<DataModel>> {
         return Transformations.map(momentDao.getAllMoment()) {

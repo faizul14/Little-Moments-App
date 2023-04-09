@@ -1,21 +1,19 @@
 package com.example.limoapp.data.local.entity
 
-import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parcelize
 
 @Entity
-@Parcelize
-data class MomentEntity(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int = 0,
+data class MomentEntity (
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id") var id: Int,
 
-    @ColumnInfo(name = "comment") var comment: String? = null,
+    @ColumnInfo(name = "comment") var comment: String,
 
-    @ColumnInfo(name = "path") var path: String? = null,
+    @ColumnInfo(name = "path") var path: String,
 
-    @ColumnInfo(name = "time") var time: String? = null,
+    @ColumnInfo(name = "time") var time: String,
 
-    @ColumnInfo(name = "emoji") var emoji: String? = null,
-) : Parcelable
+    @ColumnInfo(name = "emoji") var emoji: String,
+)

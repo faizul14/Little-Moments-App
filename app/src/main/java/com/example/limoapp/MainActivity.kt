@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
@@ -12,11 +13,13 @@ import com.example.limoapp.adapter.ListMomentAdapter
 import com.example.limoapp.databinding.ActivityMainBinding
 import com.example.limoapp.ui.addmoment.AddMomentActivity
 import com.example.limoapp.utils.ViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var adapter: ListMomentAdapter
     private val PERMISSIONS_REQUEST_CODE = 123
 
@@ -73,10 +76,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun firstSet() {
-        // VIEWMODEL
-        val factory = ViewModelFactory.getInstance(this.applicationContext)
-        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
-
         //ADAPTER
         adapter = ListMomentAdapter()
         binding.rvComment.layoutManager = LinearLayoutManager(this)

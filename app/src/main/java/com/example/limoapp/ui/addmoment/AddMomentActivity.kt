@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -19,13 +20,15 @@ import com.example.limoapp.ui.camerax.CameraXActivity
 import com.example.limoapp.utils.GetTimeNow
 import com.example.limoapp.utils.ViewModelFactory
 import com.example.limoapp.utils.rotateBitmap
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class AddMomentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddMomentBinding
-    private lateinit var viewModel: AddMomentViewModel
+    private val viewModel: AddMomentViewModel by viewModels()
     private var myFileSave: File? = null
 
     companion object {
@@ -63,9 +66,6 @@ class AddMomentActivity : AppCompatActivity() {
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
             )
         }
-        //VIEWMODEL
-        val factory = ViewModelFactory.getInstance(this.applicationContext)
-        viewModel = ViewModelProvider(this, factory)[AddMomentViewModel::class.java]
         display()
         btnDisplay()
     }
